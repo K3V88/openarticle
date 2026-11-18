@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>OpenArticle</title>
+  <rect x="4" y="4" width="120" height="120" rx="29" fill="#205841"/>
+  <path d="M66 30H36a6 6 0 0 0-6 6v57a6 6 0 0 0 6 6h50a6 6 0 0 0 6-6V65" stroke="#FAF8EE" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 64h16M46 81h29" stroke="#FAF8EE" stroke-width="7" stroke-linecap="round"/>
+  <path d="M77 29h23v23M99 30 72 57" stroke="#B9E6A2" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -11,7 +11,9 @@
     "check": "npm run typecheck && npm test && npm run build",
     "test:browser": "npm run build && playwright test",
     "demo": "node scripts/demo.mjs",
-    "test:live": "npm run build && node scripts/test-live.mjs"
+    "test:live": "npm run build && node scripts/test-live.mjs",
+    "inspect:access": "npm run build && node scripts/inspect-access.mjs",
+    "icons": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
     "@mozilla/readability": "^0.6.0",

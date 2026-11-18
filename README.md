@@ -79,3 +79,11 @@ The live check confirms that those two specific articles render successfully and
 - `THIRD_PARTY_NOTICES.md`, `licenses/`: bundled dependency licenses.
 
 Reference documentation: [Chrome activeTab](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab), [Chrome scripting](https://developer.chrome.com/docs/extensions/reference/api/scripting), [Mozilla Readability](https://github.com/mozilla/readability), and [DOMPurify](https://github.com/cure53/DOMPurify).
+
+## Inspect a publisher access problem
+
+Run `npm run inspect:access -- 'https://publisher.example/article'` to record the public HTTP status, a small allowlist of response headers, visible gate counts, restricted-metadata presence, and the extension's classification. The result is saved locally to `artifacts/access/report.json`. This uses an isolated, signed-out browser and does not extract article text or expose hidden content. It does not modify publisher access controls.
+
+A diagnostic run on the supplied Telegraaf article returned **HTTP 403**, a `server: cloudflare` response header, and a Cloudflare block-page title. No article element or restricted JSON-LD was present in that response; the extension classified it as **Unknown**. This is evidence of a Cloudflare-served access block in the test environment, not an explanation of Telegraaf's subscription enforcement. The **Hard paywall** result in your own browser may come from a different page response. In OpenArticle, that label means restricted publisher metadata or a visible recognized subscription gate was detected; it does not prove that the content is enforced on the server.
+
+Append `--extract` to the inspection command to also invoke OpenArticle's existing guarded text extractor. The report records success/refusal and character counts without storing article text. On the supplied Telegraaf URL, the extraction attempt returned zero characters because the response was a Cloudflare 403 page and the reader access check refused extraction.
